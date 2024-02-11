@@ -1,0 +1,58 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container d-flex justify-content-center align-items-center">
+<form method="post" asp-action="Delete">
+    <input asp-for="Id" hidden />
+
+    <div>
+        <h2>Delete Category</h2>
+    </div>
+    <br />
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name"disabled class="form-control" style="width:300px" />
+
+    </div>
+    <div>
+        <label asp-for="Status"></label>
+            <input asp-for="Status" disabled class="form-control" style="width:300px" />
+
+    </div>
+    <br />
+        <button type="submit" class=" btn btn-info" onclick="displayAlert()" style="width:150px">
+        Delete</button>
+         @section scripts {
+            <script>
+                function displayAlert() {
+
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "You won't be able to revert this!",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, delete it!"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    });
+                }
+            </script>
+        }
+    <a asp-controller="Category" asp-action="Index" class="btn btn-dark" style="width:150px">
+        Back To List
+    </a>
+</form>
+</div>
+
+
+

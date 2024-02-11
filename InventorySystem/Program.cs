@@ -1,15 +1,15 @@
 using InventorySystem.Controllers.Data;
-using Microsoft.CodeAnalysis.Options;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-builder.Services.AddDbContext < ApplicationDbContext>(option => option.UseSqlServer(
+builder.Services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(
     builder.Configuration.GetConnectionString("defaultConnection")
+
     ));
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 
 var app = builder.Build();
