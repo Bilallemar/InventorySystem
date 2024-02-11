@@ -1,0 +1,9 @@
+C:\Users\Jan\Documents\GitHub\InventorySystem\InventorySystem\obj\Debug\net8.0\InventorySystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jan\Documents\GitHub\InventorySystem\InventorySystem\obj\Debug\net8.0\InventorySystem.AssemblyInfoInputs.cache
+C:\Users\Jan\Documents\GitHub\InventorySystem\InventorySystem\obj\Debug\net8.0\InventorySystem.AssemblyInfo.cs
+C:\Users\Jan\Documents\GitHub\InventorySystem\InventorySystem\obj\Debug\net8.0\InventorySystem.csproj.CoreCompileInputs.cache
+C:\Users\Jan\Documents\GitHub\InventorySystem\InventorySystem\obj\Debug\net8.0\InventorySystem.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Jan\Documents\GitHub\InventorySystem\InventorySystem\obj\Debug\net8.0\InventorySystem.RazorAssemblyInfo.cache
+C:\Users\Jan\Documents\GitHub\InventorySystem\InventorySystem\obj\Debug\net8.0\InventorySystem.RazorAssemblyInfo.cs
+C:\Users\Jan\Documents\GitHub\InventorySystem\InventorySystem\obj\Debug\net8.0\InventorySystem.csproj.AssemblyReference.cache
+C:\Users\Jan\Documents\GitHub\InventorySystem\InventorySystem\obj\Debug\net8.0\InventorySystem.MvcApplicationPartsAssemblyInfo.cs
