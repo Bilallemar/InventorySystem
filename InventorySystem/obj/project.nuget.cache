@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qGL7UtJbQhFjgSOuxFfFiyjm3BmM+UzNqSoqbNgQU++553gVonM8sf3kHB9nmBXWUHhDD/K72h2PF1iG1AXo5Q==",
+  "dgSpecHash": "ee8UAgVsKNmMBL5G5psUJpti6ZORmtTh6QWJzc5V8sbNohUmXZBVyqEy6dmcwb91Gj1F9/GHAIV9OuBr56ZwDw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jan\\Documents\\GitHub\\InventorySystem\\InventorySystem\\InventorySystem.csproj",
+  "projectFilePath": "C:\\Users\\Jan\\Desktop\\InventorySystem\\InventorySystem\\InventorySystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jan\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Jan\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

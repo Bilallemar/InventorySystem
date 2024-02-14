@@ -3,62 +3,118 @@
     ViewData["Title"] = "Index";
 }
 
+@{
+    var result = TempData["CategoryIsSuccess"]?.ToString();
+    if (result == "Success")
+    {
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'موفقانه!',
+                text: 'عملیات موفقانه اجرا شد!',
+                showConfirmButton: false,
+                timer: 1500,
+                allowOutsideClick: false,
+                timeProgressBar: true,
+                allowEscapeKey: false
+            }).then(function () {
 
-
-
-
+            });
+        </script>
+    }
+    else if (result == "Failed")
+    {
+        <script>
+            Swal.fire({
+                icon: 'warning',
+                title: 'خطا!!',
+                text: 'عملیات اجرا نشد',
+                confirmButtonText: "بستن"
+            })
+        </script>
+    }
+}
 
 <div class="container p-4">
     <div class="row pt-3">
-        <div class="col-6">
-            <h2> Category List</h2>
+        <div class="col-6 text-end">
+            <h2> د کټګورۍ لیست</h2>
         </div>
         <div class="col-6 text-end">
-            <a asp-controller="Category" asp-action="Create" class="btn btn-outline-primary" >
-                <i class="bi bi-plus"></i>Create Category
+            <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus"></i>کټګورۍ جوړه کړئ
             </a>
-        
+
         </div>
 
     </div>
 
 </div>
 
-<table class="table table-bordered  table-dark   style="width:100%">
+<table class="table table-bordered  table-dark" style="width:100%">
     <tr class="table-primary">
 
         <th>
-            Name
+            نوم
         </th>
         <th>
-            Status
+            حالت
         </th>
         <th>
-            Action
+            عمل
         </th>
     </tr>
 
     <tbody>
-        @foreach(var obj in Model)
+        @foreach (var obj in Model)
         {
-        <tr>
-            <td width="50%">
-               @obj.Name
-            </td>
-            <td width="30%">
-                @obj.Status
-            </td>
-            <td>
-                <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary">Edit
-                    <i class="bi bi-pencil-square"></i>
-                </a>
-                    <a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger">
-                        Delete
-                        <i class="bi bi-trash"></i>
+            <tr>
+                <td width="50%">
+                    @obj.Name
+                </td>
+                <td width="30%">
+                    @obj.Status
+                </td>
+                <td>
+                    <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary">
+                        سمون
+                        <i class="bi bi-pencil-square"></i>
                     </a>
-            </td>
-        </tr>
+
+                    <form method="post" id="@obj.Id" asp-action="Delete" asp-route-id="@obj.Id" style="display:inline;">
+                        <button style=" border: none; cursor: pointer;" type="submit" onclick="return functionConfirm(@obj.Id)">ړنګول<i class="bi bi-trash"></i></button>
+                    </form>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
 
+<script type="text/javascript">
+    var id;
+    function functionConfirm(event) {
+        swal({
+
+            title: 'آیا مطمین هستید؟',
+            text: "موتر حذف خواهد شد!",
+            type: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'نخیر',
+            cancelButtonClass: 'btn btn-info',
+            showConfirmButton: true,
+            confirmButtonText: 'بلی,حذف کن',
+            confirmButtonClass: 'btn btn-danger'
+
+        }, function (isConfirm) {
+            if (isConfirm) {
+
+                $("#" + event).submit();
+                return true;
+            } else {
+                return false;
+            }
+        });
+        console.log(event);
+        return false;
+    }
+</script>

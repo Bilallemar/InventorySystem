@@ -12,18 +12,19 @@
     </div>
     <br />
     <div>
-        <label asp-for="Name"></label>
+            <label asp-for="Name">نوم</label>
         <input asp-for="Name"disabled class="form-control" style="width:300px" />
 
     </div>
     <div>
-        <label asp-for="Status"></label>
+            <label asp-for="Status">حالت</label>
             <input asp-for="Status" disabled class="form-control" style="width:300px" />
 
     </div>
     <br />
         <button type="submit" class=" btn btn-info" onclick="displayAlert()" style="width:150px">
-        Delete</button>
+            ړنګول
+        </button>
          @section scripts {
             <script>
                 function displayAlert() {
@@ -49,7 +50,7 @@
             </script>
         }
     <a asp-controller="Category" asp-action="Index" class="btn btn-dark" style="width:150px">
-        Back To List
+            بیرته لیست ته تلل
     </a>
 </form>
 </div>

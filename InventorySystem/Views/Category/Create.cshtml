@@ -7,38 +7,26 @@
 <form method="post"class="align-items-center" >
 
     <div>
-        <h2>Create Category</h2>
+            <h2>کټګورۍ جوړه کړئ</h2>
     </div>
     <br />
     <div>
-        <label asp-for="Name"></label>
+        <label asp-for="Name">نوم</label>
         <input asp-for="Name" class="form-control" style="width:300px" />
 
     </div>
     <div>
-        <label asp-for="Status"></label>
+        <label asp-for="Status">حالت</label>
         <input asp-for="Status" class="form-control" style="width:300px" />
 
     </div>
     <br />
-        <button type="submit" class="btn btn-outline-primary" onclick="displayAlert()" style="width:150px">
-        Submit</button>
-        @section scripts {
-            <script>
-                function displayAlert() {
-
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: "Your work has been saved",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                }
-            </script>
-        }
-    <a asp-controller="Category" asp-action="Index" class="btn btn-outline-light" style="width:150px">
-        Back To List
+        <button type="submit" class="btn btn-outline-primary" @* onclick="displayAlert()" *@ style="width:150px">
+            لیږل
+        </button>
+     
+    <a asp-controller="Category" asp-action="Index" class="btn btn-light" style="width:150px">
+            بیرته لیست ته تلل
     </a>
 </form>
 </div>

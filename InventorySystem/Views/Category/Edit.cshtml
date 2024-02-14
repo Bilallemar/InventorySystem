@@ -6,25 +6,26 @@
 <div class="container d-flex justify-content-center align-items-center">
 <form method="post" asp-action="Edit" >
 
-    <div>
-        <h2>Eddit Category</h2>
+    <div class="text-end">
+            <h2>د کټګورۍ سمون</h2>
     </div>
     <br />
     <div>
-        <label asp-for="Name"></label>
+            <label asp-for="Name">نوم</label>
         <input asp-for="Name" class="form-control" style="width:300px" />
 
     </div>
     <div>
-        <label asp-for="Status"></label>
+            <label asp-for="Status">حالت</label>
         <input asp-for="Status" class="form-control" style="width:300px" />
 
     </div>
     <br />
         <button type="submit" class=" btn btn-info" style="width:150px">
-        Update</button>
+             تازه کول
+        </button>
     <a asp-controller="Category" asp-action="Index" class="btn btn-dark" style="width:150px">
-        Back To List
+            بیرته لیست ته تلل
     </a>
 </form>
 </div>

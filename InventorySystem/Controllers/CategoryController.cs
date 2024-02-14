@@ -19,7 +19,7 @@ namespace InventorySystem.Controllers
         //GET
         public IActionResult Create()
         {
-           
+
             return View();
         }
         //POST
@@ -27,12 +27,12 @@ namespace InventorySystem.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Category cat)
         {
-            if(ModelState.IsValid)
-            { 
-            _db.Categories.Add(cat);
-            _db.SaveChanges();
-                TempData["success"] = "Category Created Successfuly";
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _db.Categories.Add(cat);
+                _db.SaveChanges();
+                TempData["CategoryIsSuccess"] = "Success";
+                return RedirectToAction("Index");
 
             }
             return View(cat);
@@ -40,11 +40,11 @@ namespace InventorySystem.Controllers
 
         public IActionResult Edit(int? id)
         {
-            if(id == null)
+            if (id == null)
 
-            return NotFound();
+                return NotFound();
             var getData = _db.Categories.Find(id);
-            if(getData == null)
+            if (getData == null)
             {
                 return NotFound();
             }
@@ -59,7 +59,7 @@ namespace InventorySystem.Controllers
             {
                 _db.Categories.Update(cat);
                 _db.SaveChanges();
-                TempData["success"] = "Category Updated Successfuly";
+                TempData["CategoryIsSuccess"] = "Success";
                 return RedirectToAction("Index");
 
             }
@@ -78,7 +78,7 @@ namespace InventorySystem.Controllers
             return View(getData);
         }
         //POST
-        [HttpPost,ActionName ("Delete")]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id)
         {
@@ -88,12 +88,12 @@ namespace InventorySystem.Controllers
                 return NotFound();
             }
             _db.Categories.Remove(getData);
-                _db.SaveChanges();
+            _db.SaveChanges();
             TempData["success"] = "Category Deleted Successfuly";
             return RedirectToAction("Index");
 
-           
-           
+
+
         }
     }
 }
