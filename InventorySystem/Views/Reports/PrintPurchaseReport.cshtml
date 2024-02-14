@@ -1,0 +1,67 @@
+﻿@model InventorySystem.Models.Purchase
+@{
+    ViewData["Title"] = "Reports";
+}
+<button class="btn btn-dark m-3" onclick="printDiv('printJS-form')">چاپ <i class=" nav-icon fa fa-print"></i> </button>
+<div class="wrapper m-auto" id="printJS-form">
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Product)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PurchaseNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BuyingQty)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.Reports)
+            {
+                <tr>
+                    <td>
+                        @item.Product.Name
+                    </td>
+                    <td>
+                        @item.PurchaseNo
+                    </td>
+                    <td>
+                        @item.Description
+                    </td>
+                    <td>
+                        @item.BuyingQty
+                    </td>
+                    <td>
+                        @item.Status
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function printDiv(divId) {
+        var printContents = document.getElementById(divId).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+
+</script>

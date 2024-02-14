@@ -8068,11 +8068,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jan\\Desktop\\InventorySystem\\InventorySystem\\InventorySystem.csproj",
+      "projectUniqueName": "C:\\Users\\Jan\\Documents\\GitHub\\InventorySystem\\InventorySystem\\InventorySystem.csproj",
       "projectName": "InventorySystem",
-      "projectPath": "C:\\Users\\Jan\\Desktop\\InventorySystem\\InventorySystem\\InventorySystem.csproj",
+      "projectPath": "C:\\Users\\Jan\\Documents\\GitHub\\InventorySystem\\InventorySystem\\InventorySystem.csproj",
       "packagesPath": "C:\\Users\\Jan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jan\\Desktop\\InventorySystem\\InventorySystem\\obj\\",
+      "outputPath": "C:\\Users\\Jan\\Documents\\GitHub\\InventorySystem\\InventorySystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Jan\\AppData\\Roaming\\NuGet\\NuGet.Config",
