@@ -1,0 +1,101 @@
+.video{
+    border: 1px solid #ddd;
+}
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.01);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Style the Image Used to Trigger the Modal */
+  #galleryImage {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  }
+
+  #galleryImage:hover {opacity: 0.7;}
+
+  /* The Modal (background) */
+  .modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.9);
+  }
+
+  /* Modal Content (Image) */
+  .modal-content {
+  margin: auto;
+  display: block;
+  width: 50%;
+  max-width: 700px;
+  }
+
+  /* Add Animation - Zoom in the Modal */
+  .modal-content {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+  }
+
+  @keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+  }
+
+  /* The Close Button */
+  .close {
+  position: absolute;
+  top: 15px;
+  left: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  }
+
+  .close:hover,
+  .close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+  }
+
+  /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 700px){
+  .modal-content {
+      width: 100%;
+  }
+  }
