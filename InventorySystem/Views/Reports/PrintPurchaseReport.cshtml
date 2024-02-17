@@ -14,16 +14,19 @@
                     @Html.DisplayNameFor(model => model.Product)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.PurchaseNo)
+                    @Html.DisplayNameFor(model => model.SupplierID)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Description)
+                    @Html.DisplayNameFor(model => model.PurchaseDate)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.BuyingQty)
+                    @Html.DisplayNameFor(model => model.Quantity)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Status)
+                    @Html.DisplayNameFor(model => model.UnitPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Discount)
                 </th>
             </tr>
         </thead>
@@ -35,16 +38,19 @@
                         @item.Product.Name
                     </td>
                     <td>
-                        @item.PurchaseNo
+                        @item.SupplierID
                     </td>
                     <td>
-                        @item.Description
+                        @item.PurchaseDate
                     </td>
                     <td>
-                        @item.BuyingQty
+                        @item.Quantity
                     </td>
                     <td>
-                        @item.Status
+                        @item.UnitPrice
+                    </td>
+                    <td>
+                        @item.Discount
                     </td>
                 </tr>
             }

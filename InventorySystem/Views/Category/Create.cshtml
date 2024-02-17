@@ -2,34 +2,54 @@
 @{
     ViewData["Title"] = "Create";
 }
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">ساخت انواع</a></li>
+                    <li class="breadcrumb-item"><a asp-controller="MoneyPayments" asp-action="Index">انواع</a></li>
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">صفحه عمومی</a></li>
+                   
 
-<div class="container d-flex justify-content-center align-items-center">
-<form method="post"class="align-items-center" >
-
-    <div>
-            <h2>کټګورۍ جوړه کړئ</h2>
-    </div>
-    <br />
-    <div>
-        <label asp-for="Name">نوم</label>
-        <input asp-for="Name" class="form-control" style="width:300px" />
-
-    </div>
-    <div>
-        <label asp-for="Status">حالت</label>
-        <input asp-for="Status" class="form-control" style="width:300px" />
-
-    </div>
-    <br />
-        <button type="submit" class="btn btn-outline-primary" @* onclick="displayAlert()" *@ style="width:150px">
-            لیږل
-        </button>
-     
-    <a asp-controller="Category" asp-action="Index" class="btn btn-light" style="width:150px">
-            بیرته لیست ته تلل
-    </a>
-</form>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
 </div>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-body">
+                <div class="card card-info">
+                    <div class="card-header text-center">
+                        <h3 class="card-title">لبست انواع</h3>
+                    </div>
+                  
+                    <br />
+                    <div class="container d-flex justify-content-center align-items-center">
+                        <form method="post" class="align-items-center">
 
 
+                            <br />
+                            <div>
+                                <label asp-for="Name">نام</label>
+                                <input asp-for="Name" class="form-control" style="width:300px" />
+
+                            </div>
+
+                            <br />
+                            <button type="submit" class="btn btn-outline-primary" style="width:150px">
+                                ارسال
+                            </button>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 

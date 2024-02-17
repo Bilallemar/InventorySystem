@@ -14,29 +14,47 @@ namespace InventorySystem.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
+        //View PurchaseReport
+        public IActionResult PurchaseReport()
         {
             ViewBag.Reports = _db.Purchases.Include(x => x.Product).ToList();
-            ViewData["ProductId"] = new SelectList(_db.Products, "Id", "Name");
+            ViewData["ProductID"] = new SelectList(_db.Products, "Id", "Name");
             return View();
         }
 
         // POST: PurchaseReport
         [HttpPost]
-        public async Task<IActionResult> Index([Bind("ProductId")] Purchase purchase)
+        public async Task<IActionResult> PurchaseReport([Bind("ProductID")] Purchase purchase)
         {
-            ViewBag.Reports = _db.Purchases.Where(x => (x.ProductId == purchase.ProductId || purchase.ProductId == 0)).Include(x =>x.Product).ToList();
+            ViewBag.Reports = _db.Purchases.Where(x => (x.ProductID == purchase.ProductID || purchase.ProductID == 0)).Include(x => x.Product).ToList();
 
-            ViewData["ProductId"] = new SelectList(_db.Products, "Id", "Name");
+            ViewData["ProductID"] = new SelectList(_db.Products, "Id", "Name");
             return View();
         }
-        // POST: PurchaseReport
-        [HttpPost]
-        public async Task<IActionResult> PrintPurchaseReport([Bind("ProductId")] Purchase purchase)
+        //View SalesReport
+        public IActionResult SalesReport()
         {
-            ViewBag.Reports = _db.Purchases.Where(x => (x.ProductId == purchase.ProductId || purchase.ProductId == 0)).Include(x => x.Product).ToList();
+            ViewBag.Reports = _db.Sales.Include(x => x.Product).ToList();
+            ViewData["ProductID"] = new SelectList(_db.Products, "Id", "Name");
+            return View();
+        }
 
-            ViewData["ProductId"] = new SelectList(_db.Products, "Id", "Name");
+        // POST: Sales Report
+        [HttpPost]
+        public async Task<IActionResult> SalesReport([Bind("ProductID")] Sale sale)
+        {
+            ViewBag.Reports = _db.Sales.Where(x => (x.ProductID == sale.ProductID || sale.ProductID == 0)).Include(x => x.Product).ToList();
+
+            ViewData["ProductID"] = new SelectList(_db.Products, "Id", "Name");
+            return View();
+        }
+        // POST: Prent PurchaseReport
+        [HttpPost]
+        public async Task<IActionResult> PrintPurchaseReport([Bind("ProductID")] Purchase purchase)
+        {
+            ViewBag.Reports = _db.Purchases.Where(x => (x.ProductID == purchase.ProductID || purchase.ProductID == 0)).Include(x => x.Product).ToList();
+
+            ViewData["ProductID"] = new SelectList(_db.Products, "Id", "Name");
             return View();
         }
     }

@@ -1,0 +1,110 @@
+﻿@model InventorySystem.Models.Purchase
+@{
+    ViewData["Title"] = "Reports";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a asp-controller="MoneyPayments" asp-action="Index">  راپور خرید </a></li>
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">صفحه عمومی</a></li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-body">
+                <div class="card card-dark">
+                    <div class="card-header text-center">
+                        <h3 class="card-title">راپور خرید</h3>
+                    </div>
+
+<div class="card card-info">
+    <div class="card-body">
+        <form asp-action="Index" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             <div class="row">
+                 <div class="form-group col-lg-3">
+                    <label asp-for="ProductID" class="control-label">تولیدات</label>
+                    <select asp-for="ProductID" class="form-control chosen-select" asp-items="ViewBag.ProductId">
+                         <option>همه</option>
+                     </select>
+                 </div>
+                <div class="form-group col-lg-2">
+                    <label class="control-label" style="color:white">.</label>
+                    <div class="form-group">
+                                            <button type="submit" style="width:20%" class="p-1 btn btn-info"><i class="bi bi-search"></i></button>
+                        @* <input type="submit" style="width:90%" value="Search" class="btn btn-outline-primary" /> *@
+                    </div>
+                </div>
+                <div class="form-group col-lg-2">
+                    <label class="control-label" style="color:white">چاپ</label>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-info" target="_blank" asp-action="PrintPurchaseReport">چاپ <i class=" nav-icon fa fa-print"></i></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                تولید
+            </th>
+            <th>
+               شناسه فروشنده
+            </th>
+            <th>
+                تاریخ خریداری
+            </th>
+            <th>
+               مقدار
+            </th>
+            <th>
+                قیمت واحد
+            </th>
+            <th>
+                تخفیف
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.Reports)
+        {
+            <tr>
+                <td>
+                    @item.Product.Name
+                </td>
+                <td>
+                    @item.SupplierID
+                </td>
+                <td>
+                    @item.PurchaseDate
+                </td>
+                <td>
+                    @item.Quantity
+                </td>
+                <td>
+                    @item.UnitPrice
+                </td>
+                <td>
+                    @item.Discount
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InventorySystem.Models
 {
@@ -6,19 +7,23 @@ namespace InventorySystem.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
-        public int SupplierId { get; set; }
-        public Supplier? Supplier {  get; set; }
-        [Required]
-        public int UnitId { get; set; }
-        public Unit? Unit { get; set; }
-        [Required]
-        public int CategoryId { get; set; }
-        public Category? Category { get; set; }
+
         [Required]
         public string Name { get; set; }
-        public int? Quantity { get; set; }
-        public int? Status { get; set; }
+
+        public string? Description { get; set; }
+
+        public float Price { get; set; }
+
+        public float Quantity { get; set; }
+
+       
+        public int CategoryID { get; set; }
+
+        public Category? Category { get; set; }
+
+      
+
 
     }
 }

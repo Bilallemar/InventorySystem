@@ -1,0 +1,156 @@
+﻿@model IEnumerable<InventorySystem.Models.Sale>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@{
+var result = TempData["CategoryIsSuccess"]?.ToString();
+    if (result == "Success")
+    {
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'موفقانه!',
+        text: 'عملیات موفقانه اجرا شد!',
+        showConfirmButton: false,
+        timer: 1500,
+        allowOutsideClick: false,
+        timeProgressBar: true,
+        allowEscapeKey: false
+    }).then(function () {
+
+    });
+</script>
+    }
+    else if (result == "Failed")
+    {
+<script>
+    Swal.fire({
+        icon: 'warning',
+        title: 'خطا!!',
+        text: 'عملیات اجرا نشد',
+        confirmButtonText: "بستن"
+    })
+</script>
+    }
+}
+
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a asp-controller="MoneyPayments" asp-action="Index">انواع</a></li>
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">صفحه عمومی</a></li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-body">
+                <div class="card card-info">
+                    <div class="card-header text-center">
+                        <h3 class="card-title">لبست انواع</h3>
+                    </div>
+                    <div class="col-md-5 m-1">
+                        <a asp-action="Create" class="btn btn-info">جدید<i class="bi bi-plus"></i></a>
+                    </div>
+                    <br />
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Product)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CustomerID)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SaleDate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Quantity)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.UnitPrice)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Price)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Product.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CustomerID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SaleDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Quantity)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.UnitPrice)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Price)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    var id;
+    function functionConfirm(event) {
+        swal({
+
+            title: 'آیا مطمین هستید؟',
+            text: "انواع حذف خواهد شد!",
+            type: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'نخیر',
+            cancelButtonClass: 'btn btn-info',
+            showConfirmButton: true,
+            confirmButtonText: 'بلی,حذف کن',
+            confirmButtonClass: 'btn btn-danger'
+
+        }, function (isConfirm) {
+            if (isConfirm) {
+
+                $("#" + event).submit();
+                return true;
+            } else {
+                return false;
+            }
+        });
+        console.log(event);
+        return false;
+    }
+</script>
