@@ -24,9 +24,9 @@ namespace InventorySystem.Controllers
 
         // POST: PurchaseReport
         [HttpPost]
-        public async Task<IActionResult> PurchaseReport([Bind("ProductID")] Purchase purchase)
+        public async Task<IActionResult> PurchaseReport([Bind("ProductId")] Purchase purchase)
         {
-            ViewBag.Reports = _db.Purchases.Where(x => (x.ProductID == purchase.ProductID || purchase.ProductID == 0)).Include(x => x.Product).ToList();
+            ViewBag.Reports = _db.Purchases.Where(x => (x.ProductId == purchase.ProductId || purchase.ProductId == 0)).Include(x => x.Product).ToList();
 
             ViewData["ProductID"] = new SelectList(_db.Products, "Id", "Name");
             return View();
@@ -41,18 +41,18 @@ namespace InventorySystem.Controllers
 
         // POST: Sales Report
         [HttpPost]
-        public async Task<IActionResult> SalesReport([Bind("ProductID")] Sale sale)
+        public async Task<IActionResult> SalesReport([Bind("ProductId")] Sale sale)
         {
-            ViewBag.Reports = _db.Sales.Where(x => (x.ProductID == sale.ProductID || sale.ProductID == 0)).Include(x => x.Product).ToList();
+            ViewBag.Reports = _db.Sales.Where(x => (x.ProductId == sale.ProductId || sale.ProductId == 0)).Include(x => x.Product).ToList();
 
             ViewData["ProductID"] = new SelectList(_db.Products, "Id", "Name");
             return View();
         }
         // POST: Prent PurchaseReport
         [HttpPost]
-        public async Task<IActionResult> PrintPurchaseReport([Bind("ProductID")] Purchase purchase)
+        public async Task<IActionResult> PrintPurchaseReport([Bind("ProductId")] Purchase purchase)
         {
-            ViewBag.Reports = _db.Purchases.Where(x => (x.ProductID == purchase.ProductID || purchase.ProductID == 0)).Include(x => x.Product).ToList();
+            ViewBag.Reports = _db.Purchases.Where(x => (x.ProductId == purchase.ProductId || purchase.ProductId == 0)).Include(x => x.Product).ToList();
 
             ViewData["ProductID"] = new SelectList(_db.Products, "Id", "Name");
             return View();

@@ -70,7 +70,7 @@ var result = TempData["CategoryIsSuccess"]?.ToString();
                                         @Html.DisplayNameFor(model => model.Product)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.CustomerID)
+                                        @Html.DisplayNameFor(model => model.CustomerId)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.SaleDate)
@@ -79,7 +79,7 @@ var result = TempData["CategoryIsSuccess"]?.ToString();
                                         @Html.DisplayNameFor(model => model.Quantity)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.UnitPrice)
+                                        @Html.DisplayNameFor(model => model.Discount)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.Price)
@@ -95,7 +95,7 @@ var result = TempData["CategoryIsSuccess"]?.ToString();
                                             @Html.DisplayFor(modelItem => item.Product.Name)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.CustomerID)
+                                            @Html.DisplayFor(modelItem => item.CustomerId)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.SaleDate)
@@ -104,7 +104,7 @@ var result = TempData["CategoryIsSuccess"]?.ToString();
                                             @Html.DisplayFor(modelItem => item.Quantity)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.UnitPrice)
+                                            @Html.DisplayFor(modelItem => item.Discount)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Price)

@@ -7,23 +7,13 @@ namespace InventorySystem.Models
     {
         [Key] 
         public int Id { get; set; }
-
-    
-        public int ProductID { get; set; }
-
+        public int ProductId { get; set; }
         public Product? Product { get; set; }
-
-        public int CustomerID { get; set; }
-
-        public Account? Account { get; set; }
-
+        public int CustomerId { get; set; }
+        public Account? Customer { get; set; }
         public DateTime SaleDate { get; set; }
-
         public float Quantity { get; set; }
-
-        public float UnitPrice { get; set; }
         public float Price { get; set; }
-
+        public float Discount { get; set; }
     }
-
 }

@@ -57,7 +57,7 @@ namespace InventorySystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Price,Quantity,CategoryID")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,Price,Quantity,CategoryId")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace InventorySystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Categories, "Id", "Name", product.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
             return View(product);
         }
 
@@ -82,7 +82,7 @@ namespace InventorySystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryID"] = new SelectList(_context.Categories, "Id", "Name", product.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
             return View(product);
         }
 
@@ -91,7 +91,7 @@ namespace InventorySystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Price,Quantity,CategoryID")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Price,Quantity,CategoryId")] Product product)
         {
             if (id != product.Id)
             {
@@ -118,7 +118,7 @@ namespace InventorySystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Categories, "Id", "Name", product.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
             return View(product);
         }
 

@@ -57,7 +57,7 @@ namespace InventorySystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ProductID,SupplierID,PurchaseDate,Quantity,UnitPrice,Discount")] Purchase purchase)
+        public async Task<IActionResult> Create([Bind("Id,ProductId,SupplierId,PurchaseDate,Quantity,Price,Discount")] Purchase purchase)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace InventorySystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductID"] = new SelectList(_context.Products, "Id", "Name", purchase.ProductID);
+            ViewData["ProductID"] = new SelectList(_context.Products, "Id", "Name", purchase.ProductId);
             return View(purchase);
         }
 
@@ -82,7 +82,7 @@ namespace InventorySystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductID"] = new SelectList(_context.Products, "Id", "Name", purchase.ProductID);
+            ViewData["ProductID"] = new SelectList(_context.Products, "Id", "Name", purchase.ProductId);
             return View(purchase);
         }
 
@@ -91,7 +91,7 @@ namespace InventorySystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ProductID,SupplierID,PurchaseDate,Quantity,UnitPrice,Discount")] Purchase purchase)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ProductId,SupplierId,PurchaseDate,Quantity,Price,Discount")] Purchase purchase)
         {
             if (id != purchase.Id)
             {
@@ -118,7 +118,7 @@ namespace InventorySystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductID"] = new SelectList(_context.Products, "Id", "Name", purchase.ProductID);
+            ViewData["ProductID"] = new SelectList(_context.Products, "Id", "Name", purchase.ProductId);
             return View(purchase);
         }
 
